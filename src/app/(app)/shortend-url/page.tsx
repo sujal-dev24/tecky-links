@@ -56,7 +56,9 @@ const ShorturlPage = () => {
       const data = await response.json();
 
       if (response.status === 409) {
-        toast.error("The custom URL is already in use. Please choose a different one.😭");
+        toast.error(
+          "The custom URL is already in use. Please choose a different one.😭"
+        );
         setLongUrl("");
         setCustomUrl("");
         return;
@@ -112,9 +114,16 @@ const ShorturlPage = () => {
                 />
               </div>
 
+              {/* Display error message */}
+              {error && (
+                <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700">
+                  <p>{error}</p>
+                </div>
+              )}
+
               <div>
                 <label
-                  htmlFor="customAlias"
+                  htmlFor="customUrl"
                   className="block text-sm font-medium text-purple-900 mb-2"
                 >
                   Custom URL
@@ -201,4 +210,3 @@ const ShorturlPage = () => {
 };
 
 export default ShorturlPage;
-

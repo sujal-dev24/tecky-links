@@ -15,6 +15,7 @@ export async function dbConnection(): Promise<void> {
         const db = await mongoose.connect(process.env.MONGODB_URI || "MONGODB_URI is not connected successfully");
         connection.isConnected = db.connections[0].readyState === 1;
     } catch (error) {
+        console.log("error fetch in data base", error);
         process.exit(1);
     }
 }
