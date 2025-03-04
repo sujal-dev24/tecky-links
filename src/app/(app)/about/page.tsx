@@ -3,14 +3,14 @@ export default function AboutPage() {
     <main className="min-h-screen bg-gradient-to-b from-purple-100 to-white">
       {/* Hero Section */}
       <section className="relative py-24 px-4 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url(/grid.svg)] opacity-10"></div>
         <div className="container mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto mt-10">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               About <span className="text-purple-300">TECKYLinks</span>
             </h1>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              We're dedicated to making link sharing simpler and more efficient for everyone. Our platform combines ease of use with powerful features to give you the best URL shortening experience.
+              Were dedicated to making link sharing simpler and more efficient for everyone. Our platform combines ease of use with powerful features to give you the best URL shortening experience.
             </p>
           </div>
         </div>
@@ -23,7 +23,7 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold text-purple-900 mb-8 text-center">Our Mission</h2>
             <div className="space-y-6">
               <p className="text-xl text-purple-700 leading-relaxed">
-                Our mission is to simplify the way people share links online. We believe that every link should be clean, professional, and easy to remember. Whether you're a business professional, social media influencer, or casual user, we're here to make your link sharing experience better.
+                Our mission is to simplify the way people share links online. We believe that every link should be clean, professional, and easy to remember. Whether you are a business professional, social media influencer, or casual user, were here to make your link sharing experience better.
               </p>
               <div className="grid grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
@@ -102,3 +102,5 @@ export default function AboutPage() {
     </main>
   );
 }
+
+
