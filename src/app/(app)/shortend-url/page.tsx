@@ -34,13 +34,13 @@ const ShorturlPage = () => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
-
+  
     if (!longUrl) {
       setError("Please enter a URL");
       setIsLoading(false);
       return;
     }
-
+  
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -52,9 +52,15 @@ const ShorturlPage = () => {
           shorturl: customUrl,
         }),
       });
-
+  
+      // Check if the response is JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Invalid response from server");
+      }
+  
       const data = await response.json();
-
+  
       if (response.status === 409) {
         toast.error(
           "The custom URL is already in use. Please choose a different one.😭"
@@ -63,11 +69,11 @@ const ShorturlPage = () => {
         setCustomUrl("");
         return;
       }
-
+  
       if (!response.ok) {
         throw new Error(data.message || "Something went wrong");
       }
-
+  
       setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${data.shortUrl}`);
       setLongUrl("");
       setCustomUrl("");
