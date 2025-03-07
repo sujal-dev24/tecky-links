@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
             {
                 success: true,
                 message: "your custom URL is generated successfully🥳",
-                shortUrl: newUrl.shorturl // Ensure this field is returned
+                shortUrl: newUrl.shorturl 
             },
             { status: 201 }
         );
