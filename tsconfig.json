@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext", "estree", "json-schema", "json5"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
