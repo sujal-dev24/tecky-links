@@ -1,9 +1,7 @@
 {
     "functions": {
-      "api/**/*.ts": {
+      "app/[shorturl]/page.tsx": {
         "maxDuration": 60
       }
     }
   }
-
-  

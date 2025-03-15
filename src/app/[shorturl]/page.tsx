@@ -1,16 +1,24 @@
 import Urlmodel from "@/models/url";
 import { redirect } from "next/navigation";
 
-export default async function Page({ params }: { params: Promise<{ shorturl: string }> }) {
-  const shortUrl = (await params).shorturl;
+export default async function Page({ params }: { params: { shorturl: string } }) {
+  const { shorturl } = params;
 
-    const shorturl = await Urlmodel.findOne({ shorturl: shortUrl });
+  try {
+    // Fetch the original URL from the database
+    const urlData = await Urlmodel.findOne({ shorturl });
 
-    if (!shorturl) {
+    if (!urlData) {
+      // Redirect to the home page if the short URL is not found
       return redirect(`${process.env.NEXT_PUBLIC_HOST}`);
     }
-    return redirect(shorturl.url);
-  } 
 
+    // Redirect to the original URL
+    return redirect(urlData.url);
+  } catch (error) {
+    console.error('Database error:', error);
 
-  
+    // Redirect to the home page in case of an error
+    return redirect(`${process.env.NEXT_PUBLIC_HOST}`);
+  }
+}
