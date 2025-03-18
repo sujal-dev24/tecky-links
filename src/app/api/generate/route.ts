@@ -1,4 +1,4 @@
-import { dbConnection } from "@/lib/db";
+import dbConnection from "@/lib/db";
 import Urlmodel from "@/models/url";
 import { NextRequest, NextResponse } from "next/server";
 
