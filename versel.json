@@ -1,0 +1,7 @@
+{
+    "functions": {
+      "app/[shorturl]/page.tsx": {
+        "maxDuration": 60
+      }
+    }
+  }
